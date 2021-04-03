@@ -6,6 +6,9 @@
             "SupervillainHQ\\" : "src/SupervillainHQ"
         }
     },
+    "bin" : [
+        "bin/wstools"
+    ],
     "config" : {
         "secure-http" : false,
         "cache-files-ttl": 0
@@ -22,7 +25,8 @@
         "ext-json": "*",
         "ext-phalcon": "*",
         "ext-xml": "*",
-        "svhq/core": "dev-development"
+        "svhq/core": "dev-development",
+        "nategood/commando": "^0.4"
     },
     "require-dev": {
         "phalcon/devtools": "^4",
