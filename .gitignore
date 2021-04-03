@@ -1,0 +1,5 @@
+vagrant/.vagrant
+vendor
+auth.json
+composer.lock
+*.log

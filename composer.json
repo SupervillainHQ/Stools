@@ -1,0 +1,32 @@
+{
+    "name": "supervillainhq/wstools",
+    "description": "Website Tools",
+    "autoload": {
+        "psr-4" : {
+            "SupervillainHQ\\" : "src/SupervillainHQ"
+        }
+    },
+    "config" : {
+        "secure-http" : false,
+        "cache-files-ttl": 0
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/SupervillainHQ/Core"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "ext-gettext": "*",
+        "ext-json": "*",
+        "ext-phalcon": "*",
+        "ext-xml": "*",
+        "svhq/core": "dev-development"
+    },
+    "require-dev": {
+        "phalcon/devtools": "^4",
+        "phpunit/phpunit": "^9",
+        "robmorgan/phinx": "^0.11"
+    }
+}
