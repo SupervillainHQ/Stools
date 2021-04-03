@@ -22,7 +22,7 @@ $vendorPath = "{$projectPath}/vendor";
 include "{$vendorPath}/autoload.php";
 
 $fallbackConfig = realpath("{$pharPath}/../config/config.json");
-$localConfig = "{$projectPath}/config/mm.json";
+$localConfig = "{$projectPath}/config/wstools.json";
 $configPath = null;
 if(is_readable($fallbackConfig) && is_file($fallbackConfig)){
     $configPath = $fallbackConfig;
@@ -39,16 +39,20 @@ $cmd = new NateGoodCommand();
 //	->require()
 //	->describedAs("path to config.xml");
 
+$cmd->option()
+    ->aka('subcommand')
+    ->require()
+    ->describedAs('Sub-command');
+
 $cmd->option('v')
     ->aka('verbose')
     ->describedAs('When set, extended logging is enabled')
     ->count(3);
 
-$cmd->option('c')
-    ->aka('command')
-    ->require()
-    ->describedAs('Maintenance command name. Case-sensitive!')
-    ->argument();
+//$cmd->option('c')
+//    ->aka('command')
+//    ->describedAs('Maintenance command name. Case-sensitive!')
+//    ->argument();
 
 $verbose = $cmd['verbose'];
 

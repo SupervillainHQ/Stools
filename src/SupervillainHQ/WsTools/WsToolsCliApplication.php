@@ -10,7 +10,7 @@ namespace SupervillainHQ\WsTools {
 
         public static function run(bool $configPath, Command $cmd)
         {
-
+            echo "WSTOOLS";
         }
     }
 }

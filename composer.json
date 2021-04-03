@@ -2,15 +2,15 @@
     "name": "supervillainhq/wstools",
     "description": "Website Tools",
     "autoload": {
-        "psr-4" : {
-            "SupervillainHQ\\" : "src/SupervillainHQ"
+        "psr-4": {
+            "SupervillainHQ\\": "src/SupervillainHQ"
         }
     },
-    "bin" : [
+    "bin": [
         "bin/wstools"
     ],
-    "config" : {
-        "secure-http" : false,
+    "config": {
+        "secure-http": false,
         "cache-files-ttl": 0
     },
     "repositories": [
@@ -31,6 +31,9 @@
     "require-dev": {
         "phalcon/devtools": "^4",
         "phpunit/phpunit": "^9",
-        "robmorgan/phinx": "^0.11"
+        "robmorgan/phinx": "^0.11",
+        "codeception/codeception": "^4.1",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0"
     }
 }

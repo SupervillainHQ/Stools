@@ -31,6 +31,11 @@ wget https://phar.phpunit.de/phpunit.phar -O /usr/local/bin/phpunit
 chown root:root /usr/local/bin/phpunit
 chmod +x /usr/local/bin/phpunit
 
+# codecept
+wget https://codeception.com/codecept.phar -O /usr/local/bin/codecept
+chown root:root /usr/local/bin/codecept
+chmod +x /usr/local/bin/codecept
+
 # download & install composer
 curl -sS http://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
