@@ -16,10 +16,12 @@ add-apt-repository -y ppa:ondrej/php
 
 apt-get install -y php7.4 php7.4-psr php7.4-phalcon php7.4-cli php7.4-curl php7.4-gd php7.4-intl php7.4-mbstring php7.4-xml php7.4-xsl php7.4-zip php7.4-xdebug
 apt-get install -y php7.4-mongodb
+apt-get install -y php7.4-sqlite3
 apt-get install -y php-msgpack php-gettext php-redis
 
 apt-get install -y redis-server
 apt-get install -y mongodb-org
+apt-get install -y sqlite
 
 #unlink /etc/apache2/sites-enabled/000-default.conf
 #ln -fs /var/www/andkrup.dk/vagrant/apache.conf /etc/apache2/sites-enabled/andkrup.dk.conf

@@ -24,6 +24,7 @@
         "ext-gettext": "*",
         "ext-json": "*",
         "ext-phalcon": "*",
+        "ext-sqlite3": "*",
         "ext-xml": "*",
         "svhq/core": "dev-master"
     },

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Install" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/bin/wstools" scriptParameters="install -vvv --domain=andkrup.dk">
+  <configuration default="false" name="Create" type="PhpLocalRunConfigurationType" factoryName="PHP Console" folderName="config" path="$PROJECT_DIR$/bin/wstools" scriptParameters="config create -vvv --domain=andkrup.dk">
     <CommandLine>
       <PhpTestInterpreterSettings>
         <option name="interpreterName" value="Remote PHP 7.4" />
