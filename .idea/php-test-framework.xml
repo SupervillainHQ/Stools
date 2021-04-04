@@ -6,6 +6,7 @@
         <settings>
           <configurations>
             <configuration_by_sdk interpreter_id="9eff83bc-f4ed-48be-8a19-ca871d37a98e" executable_path="/opt/wsTools/vendor/codeception/codeception/codecept" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/codeception.yml" executable_path="$PROJECT_DIR$/vendor/codeception/codeception/codecept" use_configuration_file="true" />
           </configurations>
         </settings>
       </tool>
