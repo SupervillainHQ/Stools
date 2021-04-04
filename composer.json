@@ -3,7 +3,7 @@
     "description": "Website Tools",
     "autoload": {
         "psr-4": {
-            "SupervillainHQ\\": "src/SupervillainHQ"
+            "Svhq\\": "src/Svhq"
         }
     },
     "bin": [
@@ -25,8 +25,7 @@
         "ext-json": "*",
         "ext-phalcon": "*",
         "ext-xml": "*",
-        "svhq/core": "dev-development",
-        "nategood/commando": "^0.4"
+        "svhq/core": "dev-master"
     },
     "require-dev": {
         "phalcon/devtools": "^4",

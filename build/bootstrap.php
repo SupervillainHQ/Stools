@@ -5,8 +5,7 @@
  * TODO: Documentation required!
  */
 
-use SupervillainHQ\WsTools\WsToolsCliApplication;
-use Commando\Command as NateGoodCommand;
+use Svhq\WsTools\WsToolsCliApplication;
 
 $arguments = array_values($argv);
 
@@ -31,43 +30,10 @@ if(is_readable($localConfig) && is_file($localConfig)){
     $configPath = $localConfig;
 }
 
-$cmd = new NateGoodCommand();
-
-// Can't use imported classes until we've determined where the vendor-dir is, so we need to reserve the first argument for
-// something that allows us to locate the vendor-dir
-//$cmd->option()
-//	->require()
-//	->describedAs("path to config.xml");
-
-$cmd->option()
-    ->aka('subcommand')
-    ->require()
-    ->describedAs('Sub-command');
-
-$cmd->option('v')
-    ->aka('verbose')
-    ->describedAs('When set, extended logging is enabled')
-    ->count(3);
-
-//$cmd->option('c')
-//    ->aka('command')
-//    ->describedAs('Maintenance command name. Case-sensitive!')
-//    ->argument();
-
-$verbose = $cmd['verbose'];
-
-if($verbose){
-    echo "PATH: {$path}\n";
-    echo "EXE PATH: {$pharPath}\n";
-    echo "LOCAL PROJECT PATH: {$projectPath}\n";
-    echo "LOCAL VENDOR PATH: {$vendorPath}\n";
-    echo "CONFIG PATH: {$configPath}\n";
-}
-
 if(is_null($configPath)){
     echo "Invalid config path\n";
     echo "(fallback: {$fallbackConfig})\n";
     echo "(local: {$localConfig})\n";
     return 0;
 }
-WsToolsCliApplication::run($configPath, $cmd);
+WsToolsCliApplication::run($configPath);

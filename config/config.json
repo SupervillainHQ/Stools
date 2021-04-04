@@ -1,1 +1,17 @@
-{}
+{
+  "webserver":  {},
+  "dependencies": {
+    "namespaces": [
+      "Svhq\\WsTools\\Dependencies"
+    ],
+    "classes": [
+      "Svhq/Core/Dependencies/Debug"
+    ]
+  },
+  "debug": {
+    "log": {
+      "path": "./log/wstools.log",
+      "level": "DEBUG"
+    }
+  }
+}
