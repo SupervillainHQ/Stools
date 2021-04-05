@@ -3,8 +3,6 @@
 
 namespace Svhq\Incubation {
 
-    use Svhq\Core\Annotations\Cli\CliAnnotationsProcessor;
-    use Svhq\Core\Cli\Console;
     use Svhq\Core\Config\Config;
     use Phalcon\Di\FactoryDefault\Cli;
     use Svhq\Core\Cli\CliCommand;

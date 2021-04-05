@@ -5,7 +5,8 @@ namespace Svhq\WsTools\Commands {
 
     use Svhq\Core\Cli\CliCommand;
     use Svhq\Core\Cli\ExitCodes;
-    use Svhq\WsTools\Web\Server\Apache\ApacheConfig;
+    use Svhq\WsTools\Web\Site;
+    use Svhq\WsTools\Web\SiteSerializer;
 
     class Install implements CliCommand {
 
@@ -32,6 +33,9 @@ namespace Svhq\WsTools\Commands {
         }
 
         function execute(): ?int{
+            $site = new Site((object) ['domain' => $this->domain, 'installPath' => $this->installPath, 'publicPath' => "{$this->installPath}/public"]);
+            $serializer = new SiteSerializer($site);
+            $serializer->create();
             return ExitCodes::GENERIC_ERROR;
         }
     }

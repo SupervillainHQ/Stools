@@ -1,0 +1,23 @@
+paths:
+    migrations: '%%PHINX_CONFIG_DIR%%/db/migrations'
+    seeds: '%%PHINX_CONFIG_DIR%%/db/seeds'
+
+environments:
+    default_migration_table: phinxlog
+    default_database: sqlite
+
+    sqlite:
+        adapter: sqlite
+        name: ./resources/wstools
+        suffix: '.db'
+
+    mysql:
+        adapter: mysql
+        host: localhost
+        name: wsTools
+        user: root
+        pass: 'vagrant'
+        port: 3306
+        charset: utf8
+
+version_order: creation

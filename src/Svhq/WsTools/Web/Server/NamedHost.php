@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Svhq\WsTools\Web {
+namespace Svhq\WsTools\Web\Server {
 
     class NamedHost{
         protected string $domain;

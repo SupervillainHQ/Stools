@@ -1,11 +1,13 @@
 {
+  "auth": "./auth.json",
   "webserver":  {},
   "dependencies": {
     "namespaces": [
       "Svhq\\WsTools\\Dependencies"
     ],
     "classes": [
-      "Svhq/Core/Dependencies/Debug"
+      "Svhq/Core/Dependencies/Debug",
+      "Svhq/Core/Dependencies/SqLite"
     ]
   },
   "debug": {
@@ -13,5 +15,8 @@
       "path": "./log/wstools.log",
       "level": "DEBUG"
     }
+  },
+  "sqlite": {
+    "database" : "./resources/wstools.db"
   }
 }

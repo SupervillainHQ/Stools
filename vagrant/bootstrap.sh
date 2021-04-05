@@ -21,7 +21,8 @@ apt-get install -y php-msgpack php-gettext php-redis
 
 apt-get install -y redis-server
 apt-get install -y mongodb-org
-apt-get install -y sqlite
+apt-get install -y gettext nodejs zip
+
 
 #unlink /etc/apache2/sites-enabled/000-default.conf
 #ln -fs /var/www/andkrup.dk/vagrant/apache.conf /etc/apache2/sites-enabled/andkrup.dk.conf
