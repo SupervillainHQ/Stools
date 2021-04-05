@@ -86,8 +86,8 @@ CONF;
 
         public function save(ResourceManager $resourceManager = null):?string{
             $buffer = $this->getBuffer();
-            if($resourceManager && $resourceManager->isFile()){
-                $resourceManager->write($buffer);
+            if($resourceManager){
+                $resourceManager->write($buffer, true);
                 return null;
             }
             return $buffer;

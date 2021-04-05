@@ -4,10 +4,12 @@
 namespace Svhq\WsTools\Commands {
 
     use Svhq\Core\Cli\CliCommand;
+    use Svhq\Core\Cli\Console;
     use Svhq\Core\Cli\ExitCodes;
+    use Svhq\Core\Resource\ResourceManager;
+    use Svhq\WsTools\Commands\Config\Create as ConfigCreate;
     use Svhq\WsTools\Web\Repo\GitRepository;
     use Svhq\WsTools\Web\Repo\GitRepositorySerializer;
-    use Svhq\WsTools\Web\Site;
     use Svhq\WsTools\Web\SiteSerializer;
 
     class Install implements CliCommand {
@@ -49,6 +51,15 @@ namespace Svhq\WsTools\Commands {
             ];
             $site = SiteSerializer::insert($siteData);
 
+            $serverConfFilePath = "{$this->installPath}/apache.conf";
+            $resMan = ResourceManager::resourceManager($serverConfFilePath);
+            if(!$resMan->isFile()){
+                $confCreate = new ConfigCreate($this->domain, $serverConfFilePath);
+                $confCreate->setResourceManager($resMan);
+                $confCreate->execute();
+            }
+
+            Console::log("site {$site->domain()} installed at '{$site->installpath()}'");
             return ExitCodes::GENERIC_ERROR;
         }
     }
