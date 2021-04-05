@@ -7,11 +7,14 @@ class CreateSites extends AbstractMigration{
         if(!$this->hasTable('sites')){
             $table = $this->table('sites');
 
+            $table->addColumn('repositoryId', 'integer', ['null' => true]);
             $table->addColumn('domain', 'string', ['null' => false, 'limit' => 128]);
             $table->addColumn('installPath', 'string', ['null' => true, 'limit' => 256]);
             $table->addColumn('publicPath', 'string', ['null' => true, 'limit' => 256]);
             $table->addColumn('createdAt', 'string', ['null' => false, 'default' => 'CURRENT_TIMESTAMP', 'limit' => 24]);
             $table->addColumn('modifiedAt', 'string', ['null' => true, 'limit' => 24]);
+
+            $table->addIndex('domain', ['unique' => true]);
 
             $table->create();
         }

@@ -5,6 +5,8 @@ namespace Svhq\WsTools\Commands {
 
     use Svhq\Core\Cli\CliCommand;
     use Svhq\Core\Cli\ExitCodes;
+    use Svhq\WsTools\Web\Repo\GitRepository;
+    use Svhq\WsTools\Web\Repo\GitRepositorySerializer;
     use Svhq\WsTools\Web\Site;
     use Svhq\WsTools\Web\SiteSerializer;
 
@@ -33,9 +35,20 @@ namespace Svhq\WsTools\Commands {
         }
 
         function execute(): ?int{
-            $site = new Site((object) ['domain' => $this->domain, 'installPath' => $this->installPath, 'publicPath' => "{$this->installPath}/public"]);
-            $serializer = new SiteSerializer($site);
-            $serializer->create();
+            $repositoryData = (object) [
+                'url' => $this->repository,
+                'type' => GitRepository::TYPE_GIT
+            ];
+            $repository = GitRepositorySerializer::insert($repositoryData);
+
+            $siteData = (object) [
+                'domain' => $this->domain,
+                'installPath' => $this->installPath,
+                'publicPath' => "{$this->installPath}/public",
+                'repository' => $repository
+            ];
+            $site = SiteSerializer::insert($siteData);
+
             return ExitCodes::GENERIC_ERROR;
         }
     }

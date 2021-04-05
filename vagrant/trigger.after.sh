@@ -6,4 +6,4 @@
 #
 
 #echo "nothing to do here"
-vagrant ssh -c "sudo service apache2 restart; ps -ef | grep apache2"
+#vagrant ssh -c "sudo service apache2 restart; ps -ef | grep apache2"
