@@ -12,6 +12,13 @@ namespace Svhq\WsTools\Commands {
     use Svhq\WsTools\Web\Repo\GitRepositorySerializer;
     use Svhq\WsTools\Web\SiteSerializer;
 
+    /**
+     * Class Install. Install a web site:
+     * - create a web server conf file
+     * - create a symlink in the sites-enabled/ dir to the web server conf file
+     * - create an initial deployment (clone a web site project to the install-path, etc)
+     * @package Svhq\WsTools\Commands
+     */
     class Install implements CliCommand {
 
         /**
