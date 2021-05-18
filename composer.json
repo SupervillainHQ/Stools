@@ -1,5 +1,5 @@
 {
-    "name": "supervillainhq/wstools",
+    "name": "svhq/wstools",
     "description": "Website Tools",
     "autoload": {
         "psr-0": {
