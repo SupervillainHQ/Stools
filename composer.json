@@ -1,5 +1,5 @@
 {
-    "name": "svhq/wstools",
+    "name": "supervillainhq/wstools",
     "description": "Website Tools",
     "autoload": {
         "psr-0": {
@@ -27,7 +27,7 @@
         "ext-phalcon": "^4",
         "ext-sqlite3": "*",
         "ext-xml": "*",
-        "svhq/core": "dev-master"
+        "supervillainhq/core": "dev-master"
     },
     "require-dev": {
         "phalcon/devtools": "^4",
