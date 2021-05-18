@@ -3,11 +3,11 @@
 
 Vagrant.configure("2") do |config|
     # restart services that depends on synced folders, only available after boot
-    config.trigger.after :up do |trigger|
-        trigger.name = "restart services"
-        trigger.info = "restarting apache ..."
-        trigger.run = {path: "trigger.after.sh"}
-    end
+    #config.trigger.after :up do |trigger|
+    #    trigger.name = "restart services"
+    #    trigger.info = "restarting apache ..."
+    #    trigger.run_remote = {inline: "service apache2 restart; service php7.4-fpm restart; ps -ef | grep 'fpm\|apache2'"}
+    #end
     config.vm.box = "ubuntu/bionic64"
     config.vm.provider "virtualbox" do |v|
       v.name = "wsTools"
@@ -15,8 +15,8 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       v.customize ["modifyvm", :id, "--memory", "384"]
     end
-    #config.vm.provision :shell, :path => "bootstrap.sh"
+    config.vm.provision :shell, :path => "bootstrap.sh"
     config.vm.synced_folder "../", "/opt/wsTools"
-    config.vm.network :forwarded_port, guest: 22, host: 2962, id: 'ssh', auto_correct: true
-    config.vm.network "private_network", ip: "192.168.66.62"
+    config.vm.network :forwarded_port, guest: 22, host: 2964, id: 'ssh', auto_correct: true
+    config.vm.network "private_network", ip: "192.168.66.64"
 end

@@ -6,6 +6,9 @@ update-alternatives --set editor /usr/bin/vim.basic
 apt-get update
 apt-get upgrade -y
 
+# alternate nodejs install, fixing some problems with NodeJs v.4.2.6 on Ubuntu 16.04 (see https://stackoverflow.com/questions/46360567/error-npm-is-known-not-to-run-on-node-js-v4-2-6)
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+
 # mongo (https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
 wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
@@ -23,10 +26,11 @@ apt-get install -y redis-server
 apt-get install -y mongodb-org
 apt-get install -y gettext nodejs zip
 
+systemctl enable mongod
+
+service mongod restart
 
 #unlink /etc/apache2/sites-enabled/000-default.conf
-#ln -fs /var/www/andkrup.dk/vagrant/apache.conf /etc/apache2/sites-enabled/andkrup.dk.conf
-#ln -fs /var/www/andkrup.dk/vagrant/php7.4-fpm.ini /etc/php/7.4/fpm/php.ini
 ln -fs /opt/wsTools/vagrant/php7.4-cli.ini /etc/php/7.4/cli/php.ini
 
 # phpunit
