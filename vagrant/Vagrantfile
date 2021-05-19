@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
       v.name = "wsTools"
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-      v.customize ["modifyvm", :id, "--memory", "384"]
+      v.customize ["modifyvm", :id, "--memory", "512"]
     end
     config.vm.provision :shell, :path => "bootstrap.sh"
     config.vm.synced_folder "../", "/opt/wsTools"

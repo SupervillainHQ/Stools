@@ -16,6 +16,11 @@
       "level": "DEBUG"
     }
   },
+  "mongo" : {
+    "database": "WsTools",
+    "host": "localhost",
+    "port": 27017
+  },
   "sqlite": {
     "database" : "./resources/wstools.db"
   }

@@ -18,4 +18,5 @@ mongo --eval "let dbName = \"$dbName\";" "$DIR/create-users.js"
 #
 sed -i.bak "s/^#security:/security:\\n  authorization: enabled/" /etc/mongod.conf
 
-service mongod restart
+# Assumes user is vagrant/admin and user is ALL=(ALL:ALL) ALL
+sudo service mongod restart

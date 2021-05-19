@@ -30,6 +30,13 @@ systemctl enable mongod
 
 service mongod restart
 
+# Fix npm permissions by transferring global scope to vagrant user
+mkdir /home/vagrant/.npm-global
+chown vagrant:vagrant /home/vagrant/.npm-global
+npm config set prefix '/home/vagrant/.npm-global'
+echo "export PATH=/home/vagrant/.npm-global/bin:\$PATH" >> /home/vagrant/.profile
+
+
 #unlink /etc/apache2/sites-enabled/000-default.conf
 ln -fs /opt/wsTools/vagrant/php7.4-cli.ini /etc/php/7.4/cli/php.ini
 
