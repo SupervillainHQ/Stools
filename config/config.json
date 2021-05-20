@@ -16,6 +16,9 @@
       "level": "DEBUG"
     }
   },
+  "environment" : {
+    "src": "./src"
+  },
   "mongo" : {
     "database": "WsTools",
     "host": "localhost",

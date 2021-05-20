@@ -3,6 +3,7 @@
 
 namespace Svhq\WsTools\Commands {
 
+    use Phalcon\Di;
     use Svhq\Core\Cli\CliCommand;
     use Svhq\Core\Cli\Console;
     use Svhq\Core\Cli\ExitCodes;
@@ -59,14 +60,14 @@ namespace Svhq\WsTools\Commands {
             $site = SiteSerializer::insert($siteData);
 
             $serverConfFilePath = "{$this->installPath}/apache.conf";
-            $resMan = ResourceManager::resourceManager($serverConfFilePath);
+            $resMan = Di::getDefault()->getResource($serverConfFilePath);
             if(!$resMan->isFile()){
                 $confCreate = new ConfigCreate($this->domain, $serverConfFilePath);
                 $confCreate->setResourceManager($resMan);
                 $confCreate->execute();
             }
 
-            Console::log("site {$site->domain()} installed at '{$site->installpath()}'");
+            Console::instance()->log("site {$site->domain()} installed at '{$site->installpath()}'");
             return ExitCodes::GENERIC_ERROR;
         }
     }

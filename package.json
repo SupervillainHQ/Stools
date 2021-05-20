@@ -1,0 +1,11 @@
+{
+  "name": "svhq-wstools",
+  "version": "1.0.0",
+  "description": "Web Site Tools",
+  "license": "UNLICENSED",
+  "scripts": {
+    "publish": "bash ./scripts/publish.sh",
+    "build-phar": "php ./scripts/build-phar.php"
+  },
+  "dependencies": {}
+}

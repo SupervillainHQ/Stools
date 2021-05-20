@@ -4,14 +4,13 @@
 namespace Svhq\WsTools {
 
     use Svhq\Core\Annotations\Cli\CliAnnotationsProcessor;
+    use Svhq\Core\Application\CliApplication;
     use Svhq\Core\Cli\CliParser;
     use Svhq\Core\Cli\Console;
     use Svhq\Core\Cli\ExitCodes;
-    use Svhq\Incubation\CliApplication;
     use Svhq\Core\Cli\CliCommand;
-    use Svhq\WsTools\Commands\Install;
 
-    class WsToolsCliApplication extends CliApplication{
+    class WsToolsCliApplication extends CliApplication {
 
         protected function initCommand():?CliCommand{
             $cliParser = CliParser::instance();
@@ -36,7 +35,7 @@ namespace Svhq\WsTools {
                         $processor->process();
                     }
                     catch (\Exception $exception) {
-                        Console::log("Failed to evaluate sub-command and/or arguments: <red>{$exception->getMessage()}</red>");
+                        Console::instance()->log("Failed to evaluate sub-command and/or arguments: <red>{$exception->getMessage()}</red>");
                         exit(ExitCodes::GENERIC_ERROR);
                     }
 
@@ -55,7 +54,7 @@ namespace Svhq\WsTools {
                             }
                         }
                         catch (\Exception $exception){
-                            Console::log("Failed to align command <b>{$commandClass}</b> parameters with supplied arguments: <red>{$exception->getMessage()}</red>");
+                            Console::instance()->log("Failed to align command <b>{$commandClass}</b> parameters with supplied arguments: <red>{$exception->getMessage()}</red>");
                             exit(ExitCodes::GENERIC_ERROR);
                         }
                     }
@@ -64,7 +63,7 @@ namespace Svhq\WsTools {
                             $commandInstance = $reflector->newInstance();
                         }
                         catch (\Exception $exception){
-                            Console::log("Failed to instantiate command <b>{$commandClass}</b>: <red>{$exception->getMessage()}</red>");
+                            Console::instance()->log("Failed to instantiate command <b>{$commandClass}</b>: <red>{$exception->getMessage()}</red>");
                             exit(ExitCodes::GENERIC_ERROR);
                         }
                     }
@@ -74,11 +73,10 @@ namespace Svhq\WsTools {
                 }
             }
             return null;
+        }
 
-//            switch (strtolower($wsCommand)){
-//                case 'install':
-//                    return new Install($cliParser);
-//            }
+        protected function commandNamespaces(): array {
+            return ["Svhq\\WsTools\\Commands"];
         }
     }
 }
