@@ -35,4 +35,36 @@ class Route implements \JsonSerializable {
             'action' => $this->action
         ];
     }
+
+    /**
+     * @return string
+     */
+    public function name(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function method(): string
+    {
+        return $this->method;
+    }
+
+    /**
+     * @return string
+     */
+    public function path(): string
+    {
+        return $this->path;
+    }
+
+    /**
+     * @return string
+     */
+    public function action(): string
+    {
+        return $this->action;
+    }
 }

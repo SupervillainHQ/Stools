@@ -21,11 +21,13 @@ namespace Svhq\WsTools\Commands\Routes {
         function execute(): ?int {
             $routesFile = RoutesFile::load($this->routesFilePath);
 
-            if(is_null($this->prefix)){
-                $collection = $routesFile->getCollection($this->prefix);
-                Console::instance()->log('Collection');
-                foreach ($collection as $routes) {
-                    Console::instance()->log('Route');
+            if(!is_null($this->prefix)){
+                $prefix = "'{$this->prefix}'";
+                Console::instance()->log("Collection[{$prefix}]:");
+                if($collection = $routesFile->getCollection($this->prefix)){
+                    foreach ($collection as $route) {
+                        Console::instance()->log("Route[name: {$route->name()}, method: {$route->method()}, path: {$route->path()}, action: {$route->action()}]");
+                    }
                 }
                 return ExitCodes::OK;
             }

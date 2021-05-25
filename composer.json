@@ -22,6 +22,7 @@
     "require": {
         "php": "^7.4",
         "ext-gettext": "*",
+        "ext-gd": "*",
         "ext-json": "*",
         "ext-pdo": "*",
         "ext-phalcon": "^4",

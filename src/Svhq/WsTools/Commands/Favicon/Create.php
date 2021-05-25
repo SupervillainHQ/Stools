@@ -4,7 +4,9 @@
 namespace Svhq\WsTools\Commands\Favicon {
 
     use Svhq\Core\Cli\CliCommand;
+    use Svhq\Core\Cli\CliParser;
     use Svhq\Core\Cli\ExitCodes;
+    use Svhq\Core\Config\Config;
 
     class Create implements CliCommand {
 
@@ -13,15 +15,26 @@ namespace Svhq\WsTools\Commands\Favicon {
         /**
          * @var mixed
          */
-        private $source;
+        private string $source;
+        private string $outputFilePath;
 
-        public function __construct($source = null) {
+        public function __construct($source = null, string $outputFilePath = null) {
             $this->source = $source ?? self::$defaultB64BmpData;
             // TODO: also check if source is a file-path that should be loaded
+
+            if(is_null($outputFilePath)){
+                $outputFilePath = CliParser::instance()->getArgumentValue('outputFilePath');
+            }
+            $this->outputFilePath = $outputFilePath ?? './public/favicon.ico';
         }
 
         function execute(): ?int{
-            return ExitCodes::NOT_IMPLEMENTED;
+            if($filePath = Config::instance()->absolutePath($this->outputFilePath, true)){
+                $im = imagecreatefromstring(base64_decode($this->source));
+                imagepng($im, $filePath);
+                imagedestroy($im);
+            }
+            return ExitCodes::OK;
         }
     }
 }

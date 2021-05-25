@@ -25,6 +25,8 @@ namespace Svhq\WsTools\Commands\Routes {
         function execute(): ?int {
             $resMan = Di::getDefault()->getResource($this->filePath);
             $routes = new RoutesFile();
+            $defaultCollection = RouteCollection::inflate((object) ['prefix' => '']);
+            $routes->pushRouteCollection($defaultCollection);
             $buffer = json_encode($routes);
             $resMan->write($buffer, true);
             return ExitCodes::OK;

@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "prefix": "",
+    "class": "Svhq\\AndkrupDk\\Web\\Control\\Index",
+    "routes": [
+      {
+        "method" : "GET", "name": "GetPage", "path": "/{path:[a-zA-Z0-9.:/\\-_]*}", "action": "page"
+      },
+      {
+        "method" : "GET", "name": "GetIndex", "path": "/", "action": "index"
+      }
+    ]
+  }
+]

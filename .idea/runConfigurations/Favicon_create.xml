@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Routes status" type="PhpLocalRunConfigurationType" factoryName="PHP Console" folderName="routes" path="$PROJECT_DIR$/bin/wstools" scriptParameters="routes status --file=./dev/data/test-routes.json">
+  <configuration default="false" name="Favicon create" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/bin/wstools" scriptParameters="favicon create --outputFilePath=./dev/data/favicon.ico">
     <CommandLine>
       <PhpTestInterpreterSettings>
         <option name="interpreterName" value="Remote PHP 7.4" />
