@@ -17,6 +17,7 @@
       "level": "DEBUG"
     }
   },
+  "defer" : true,
   "environment" : {
     "src": "./src"
   },
