@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #
+#
+
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 dbName=${1:-''}
 
@@ -18,5 +20,10 @@ mongo --eval "let dbName = \"$dbName\";" "$DIR/create-users.js"
 #
 sed -i.bak "s/^#security:/security:\\n  authorization: enabled/" /etc/mongod.conf
 
-# Assumes user is vagrant/admin and user is ALL=(ALL:ALL) ALL
-sudo service mongod restart
+# Service restart requires root privileges
+if [ "$EUID" -ne 0 ]
+  then echo "Root privileges missing. Please restart mongod service manually"
+  exit
+fi
+
+service mongod restart

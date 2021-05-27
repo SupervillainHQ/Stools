@@ -4,13 +4,13 @@
 namespace Svhq\WsTools {
 
     use Svhq\Core\Annotations\Cli\CliAnnotationsProcessor;
-    use Svhq\Core\Application\CliApplication;
+    use Svhq\Core\Application\DistributedCliApplication;
     use Svhq\Core\Cli\CliParser;
     use Svhq\Core\Cli\Console;
     use Svhq\Core\Cli\ExitCodes;
     use Svhq\Core\Cli\CliCommand;
 
-    class WsToolsCliApplication extends CliApplication {
+    class WsToolsCliApplication extends DistributedCliApplication {
 
         protected function initCommand():?CliCommand{
             $cliParser = CliParser::instance();
