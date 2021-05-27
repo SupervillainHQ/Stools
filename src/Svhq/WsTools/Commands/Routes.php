@@ -16,7 +16,7 @@ namespace Svhq\WsTools\Commands {
             switch ($this->subCommand){
                 case 'status':
                     $filePath = CliParser::instance()->getArgumentValue('file') ?? '{PROJECT}/config/routes.json';
-                    $absFilePath = Config::instance()->absolutePath($filePath);
+                    $absFilePath = Config::absolutePath($filePath);
                     $subCommand = new Status($absFilePath);
                     return $subCommand->execute();
             }

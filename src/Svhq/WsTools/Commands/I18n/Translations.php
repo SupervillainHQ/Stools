@@ -3,7 +3,6 @@
 
 namespace Svhq\WsTools\Commands\I18n {
 
-    use Michelf\Markdown;
     use Phalcon\Di;
     use Svhq\Core\Cli\CliCommand;
     use Svhq\Core\Cli\CliParser;
@@ -19,7 +18,7 @@ namespace Svhq\WsTools\Commands\I18n {
                     $labels = (object) [];
 
                     $outputFilePath = CliParser::instance()->getArgumentValue('out');
-                    $outputFilePathResolved = Config::instance()->absolutePath($outputFilePath, true);
+                    $outputFilePathResolved = Config::absolutePath($outputFilePath, true);
 
                     $resMan = Di::getDefault()->getResource($outputFilePathResolved);
                     $resMan->write(json_encode($labels), true);

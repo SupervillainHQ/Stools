@@ -29,7 +29,7 @@ namespace Svhq\WsTools\Commands\Favicon {
         }
 
         function execute(): ?int{
-            if($filePath = Config::instance()->absolutePath($this->outputFilePath, true)){
+            if($filePath = Config::absolutePath($this->outputFilePath, true)){
                 $im = imagecreatefromstring(base64_decode($this->source));
                 imagepng($im, $filePath);
                 imagedestroy($im);
