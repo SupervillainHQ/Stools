@@ -36,4 +36,5 @@ if(is_null($configPath)){
     echo "(local: {$localConfig})\n";
     return 0;
 }
-WsToolsCliApplication::run($configPath);
+$exitCode = WsToolsCliApplication::run($configPath);
+exit($exitCode);
