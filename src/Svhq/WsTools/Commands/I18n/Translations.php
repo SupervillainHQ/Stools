@@ -18,7 +18,7 @@ namespace Svhq\WsTools\Commands\I18n {
                     $labels = (object) [];
 
                     $outputFilePath = CliParser::instance()->getArgumentValue('out');
-                    $outputFilePathResolved = Config::absolutePath($outputFilePath, true);
+                    $outputFilePathResolved = Config::instance()->absolutePath($outputFilePath, true);
 
                     $resMan = Di::getDefault()->getResource($outputFilePathResolved);
                     $resMan->write(json_encode($labels), true);
