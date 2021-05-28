@@ -28,7 +28,8 @@
         "ext-phalcon": "^4",
         "ext-sqlite3": "*",
         "ext-xml": "*",
-        "supervillainhq/core": "dev-master"
+        "supervillainhq/core": "dev-master",
+        "michelf/php-markdown": "^1.9"
     },
     "require-dev": {
         "phalcon/devtools": "^4",
