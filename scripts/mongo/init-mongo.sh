@@ -2,6 +2,12 @@
 #
 #
 
+# Service restart requires root privileges
+if [ "$EUID" -ne 0 ]
+  then echo "Root privileges missing. Please run as root in order to set security and restart mongod service"
+  exit
+fi
+
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 dbName=${1:-''}
 
@@ -19,11 +25,5 @@ mongo --eval "let dbName = \"$dbName\";" "$DIR/create-users.js"
 # Set up authentication
 #
 sed -i.bak "s/^#security:/security:\\n  authorization: enabled/" /etc/mongod.conf
-
-# Service restart requires root privileges
-if [ "$EUID" -ne 0 ]
-  then echo "Root privileges missing. Please restart mongod service manually"
-  exit
-fi
 
 service mongod restart

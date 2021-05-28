@@ -28,7 +28,8 @@ apt-get install -y gettext nodejs zip
 
 systemctl enable mongod
 
-service mongod restart
+# set up mongo database and users and restart service with authorization enabled
+./opt/wsTools/scripts/mongo/init-mongo.sh WsTools
 
 # Fix npm permissions by transferring global scope to vagrant user
 # !! This still requires a manual global install (as vagrant user) of npm-packages required by the project
