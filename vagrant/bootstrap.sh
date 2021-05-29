@@ -28,8 +28,7 @@ apt-get install -y gettext nodejs zip
 
 systemctl enable mongod
 
-# set up mongo database and users and restart service with authorization enabled
-./opt/wsTools/scripts/mongo/init-mongo.sh WsTools
+service mongod restart
 
 # Fix npm permissions by transferring global scope to vagrant user
 # !! This still requires a manual global install (as vagrant user) of npm-packages required by the project
@@ -56,3 +55,16 @@ curl -sS http://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chown root:root /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
+
+if [[ -z `pgrep mongod` ]]; then
+  echo "Mongod restarted but not ready for connections"
+else
+  echo "Mongod restarted and ready for connections. Set up databases, users and authorization"
+  # set up mongo database and users and restart service with authorization enabled
+  mongo --eval "let dbName = \"WsTools\";" /vagrant/mongo/create-users.js
+
+  # Set up authentication
+  sed -i.bak "s/^#security:/security:\\n  authorization: enabled/" /etc/mongod.conf
+
+  service mongod restart
+fi
