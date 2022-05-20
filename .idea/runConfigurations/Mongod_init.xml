@@ -1,10 +1,5 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Mongod init" type="PhpLocalRunConfigurationType" factoryName="PHP Console" folderName="mongo" path="$PROJECT_DIR$/bin/wstools" scriptParameters="mongod init">
-    <CommandLine>
-      <PhpTestInterpreterSettings>
-        <option name="interpreterName" value="Remote PHP 7.4" />
-      </PhpTestInterpreterSettings>
-    </CommandLine>
     <method v="2" />
   </configuration>
 </component>

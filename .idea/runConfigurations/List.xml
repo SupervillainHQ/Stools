@@ -1,10 +1,5 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="List" type="PhpLocalRunConfigurationType" factoryName="PHP Console" folderName="config" path="$PROJECT_DIR$/bin/wstools" scriptParameters="config list -vvv">
-    <CommandLine>
-      <PhpTestInterpreterSettings>
-        <option name="interpreterName" value="Remote PHP 7.4" />
-      </PhpTestInterpreterSettings>
-    </CommandLine>
     <method v="2" />
   </configuration>
 </component>

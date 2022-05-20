@@ -1,10 +1,5 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Favicon create" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/bin/wstools" scriptParameters="favicon create --outputFilePath=./dev/data/favicon.ico">
-    <CommandLine>
-      <PhpTestInterpreterSettings>
-        <option name="interpreterName" value="Remote PHP 7.4" />
-      </PhpTestInterpreterSettings>
-    </CommandLine>
     <method v="2" />
   </configuration>
 </component>

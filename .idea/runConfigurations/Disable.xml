@@ -1,10 +1,5 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Disable" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/bin/wstools" scriptParameters="disable -vvv --domain=andkrup.dk">
-    <CommandLine>
-      <PhpTestInterpreterSettings>
-        <option name="interpreterName" value="Remote PHP 7.4" />
-      </PhpTestInterpreterSettings>
-    </CommandLine>
     <method v="2" />
   </configuration>
 </component>
